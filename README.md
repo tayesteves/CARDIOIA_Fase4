@@ -303,7 +303,7 @@ return np.expand_dims(arr, axis=0)   # shape: (1, 224, 224, 3)
 ### 1. Clone o Repositório
 
 ```powershell
-git clone https://github.com/Carlos566487/CARDIOIA_Fase4.git
+git clone https://github.com/tayesteves/CARDIOIA_Fase4.git
 cd CARDIOIA_Fase4
 ```
 

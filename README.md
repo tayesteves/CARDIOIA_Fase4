@@ -50,12 +50,12 @@ São exploradas técnicas como **Redes Neurais Convolucionais (CNNs)**, pré-pro
 
 O protótipo entrega quatro componentes integrados:
 
-| Componente | Descrição |
-|------------|-----------|
-| **Pipeline de dados** | Pré-processamento de imagens médicas (Brain Tumor MRI — Kaggle) |
-| **Modelos CNN** | CNN do zero + Transfer Learning (VGG16/ResNet) com métricas completas |
-| **Interface mobile** | App React Native / Expo para upload e exibição dos resultados |
-| **Backend REST** | API Flask com endpoint `/predict` para inferência em tempo real |
+| Componente            | Descrição                                                             |
+| --------------------- | --------------------------------------------------------------------- |
+| **Pipeline de dados** | Pré-processamento de imagens médicas (Brain Tumor MRI — Kaggle)       |
+| **Modelos CNN**       | CNN do zero + Transfer Learning (VGG16/ResNet) com métricas completas |
+| **Interface mobile**  | App React Native / Expo para upload e exibição dos resultados         |
+| **Backend REST**      | API Flask com endpoint `/predict` para inferência em tempo real       |
 
 ---
 
@@ -64,29 +64,29 @@ O protótipo entrega quatro componentes integrados:
 **[Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)** — Kaggle
 7.200 imagens de ressonância magnética cerebral, 4 classes balanceadas.
 
-| Classe | Descrição |
-|--------|-----------|
-| `glioma` | Tumor do tipo glioma |
-| `meningioma` | Tumor do tipo meningioma |
-| `notumor` | Sem tumor detectado |
-| `pituitary` | Tumor na hipófise (glândula pituitária) |
+| Classe       | Descrição                               |
+| ------------ | --------------------------------------- |
+| `glioma`     | Tumor do tipo glioma                    |
+| `meningioma` | Tumor do tipo meningioma                |
+| `notumor`    | Sem tumor detectado                     |
+| `pituitary`  | Tumor na hipófise (glândula pituitária) |
 
 ### Distribuição após Pipeline
 
-| Split | Total de Imagens | Imagens por Classe |
-|-------|:---:|:---:|
-| **Train** | 4.760 | 1.190 |
-| **Validation** | 840 | 210 |
-| **Test** | 1.600 | 400 |
+| Split          | Total de Imagens | Imagens por Classe |
+| -------------- | :--------------: | :----------------: |
+| **Train**      |      4.760       |       1.190        |
+| **Validation** |       840        |        210         |
+| **Test**       |      1.600       |        400         |
 
 ### Análise Exploratória
 
-| Distribuição do Dataset | Exemplos por Classe |
-|:-:|:-:|
+|                     Distribuição do Dataset                     |                   Exemplos por Classe                   |
+| :-------------------------------------------------------------: | :-----------------------------------------------------: |
 | ![Distribuição](data/Figura%201%20—%20distribuicao_dataset.png) | ![Exemplos](data/Figura%202%20-%20exemplos_classes.png) |
 
-| Antes e Depois do Pré-processamento | Dashboard Final |
-|:-:|:-:|
+|                      Antes e Depois do Pré-processamento                      |                         Dashboard Final                         |
+| :---------------------------------------------------------------------------: | :-------------------------------------------------------------: |
 | ![Pré-processamento](data/Figura%203%20-%20antes_depois_preprocessamento.png) | ![Dashboard](data/Figura%204%20-%20dashboard_dataset_final.png) |
 
 ---
@@ -222,9 +222,9 @@ model = Model(inputs=base_model.input, outputs=output)
 
 ### Telas
 
-| | Tela Home | Tela Resultado |
-|---|---|---|
-| **Função** | Upload por galeria ou câmera | Resultado completo da análise |
+|               | Tela Home                                                                 | Tela Resultado                                                                                                 |
+| ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Função**    | Upload por galeria ou câmera                                              | Resultado completo da análise                                                                                  |
 | **Elementos** | Preview da imagem · botão "Analisar imagem →" · indicador de carregamento | Classe detectada · confiança · barras de probabilidade por classe · badge colorido · aviso clínico obrigatório |
 
 ### Fluxo de Uso
@@ -240,11 +240,11 @@ model = Model(inputs=base_model.input, outputs=output)
 
 ### Código de Cores dos Resultados
 
-| Badge | Classe | Significado |
-|-------|--------|-------------|
-| 🟢 Verde | `notumor` | Nenhum tumor detectado |
-| 🟡 Amarelo | `meningioma` / `pituitary` | Tumor de baixo risco relativo |
-| 🔴 Vermelho | `glioma` | Tumor de alto risco relativo |
+| Badge       | Classe                     | Significado                   |
+| ----------- | -------------------------- | ----------------------------- |
+| 🟢 Verde    | `notumor`                  | Nenhum tumor detectado        |
+| 🟡 Amarelo  | `meningioma` / `pituitary` | Tumor de baixo risco relativo |
+| 🔴 Vermelho | `glioma`                   | Tumor de alto risco relativo  |
 
 ---
 
@@ -254,11 +254,11 @@ model = Model(inputs=base_model.input, outputs=output)
 
 ### Endpoints
 
-| Método | Rota | Descrição |
-|--------|------|-----------|
-| `GET` | `/health` | Verifica se o servidor está ativo e o modelo está carregado |
-| `GET` | `/classes` | Retorna a lista de classes do modelo |
-| `POST` | `/predict` | Recebe uma imagem e retorna a classificação |
+| Método | Rota       | Descrição                                                   |
+| ------ | ---------- | ----------------------------------------------------------- |
+| `GET`  | `/health`  | Verifica se o servidor está ativo e o modelo está carregado |
+| `GET`  | `/classes` | Retorna a lista de classes do modelo                        |
+| `POST` | `/predict` | Recebe uma imagem e retorna a classificação                 |
 
 ### Exemplo de Resposta — `POST /predict`
 
@@ -291,12 +291,12 @@ return np.expand_dims(arr, axis=0)   # shape: (1, 224, 224, 3)
 
 ### Pré-requisitos
 
-| Ferramenta | Versão | Observação |
-|---|:---:|---|
-| Python | 3.11 ou 3.12 | Recomendado usar `py -3.11` no Windows |
-| Node.js | 18+ | Necessário para o Expo |
-| Expo Go (celular) | SDK 54 | Versão do app no celular deve ser SDK 54 |
-| Celular e PC | — | Devem estar na **mesma rede Wi-Fi** |
+| Ferramenta        |    Versão    | Observação                               |
+| ----------------- | :----------: | ---------------------------------------- |
+| Python            | 3.11 ou 3.12 | Recomendado usar `py -3.11` no Windows   |
+| Node.js           |     18+      | Necessário para o Expo                   |
+| Expo Go (celular) |    SDK 54    | Versão do app no celular deve ser SDK 54 |
+| Celular e PC      |      —       | Devem estar na **mesma rede Wi-Fi**      |
 
 ---
 
@@ -334,10 +334,6 @@ python app.py
 ```powershell
 # Health check — confirma se o servidor está ativo
 curl http://localhost:5000/health
-
-# Classificar uma imagem de teste
-curl -X POST http://localhost:5000/predict `
-  -F "image=@..\..\test_images\01_Normal_Pulmão_Normal.png"
 ```
 
 > ℹ️ **Modo placeholder:** enquanto o arquivo `cardioia_model.h5` não estiver disponível, o backend retorna resultados simulados com `"is_placeholder": true`. O servidor permanece totalmente funcional para testes da interface.
@@ -409,18 +405,7 @@ Abre automaticamente em `http://localhost:8081` no browser.
 
 ### 5. Imagens de Teste
 
-20 imagens sintéticas 224×224 px estão disponíveis em `test_images\` para validar o fluxo completo sem depender do dataset real:
-
-```powershell
-# Selecione qualquer imagem da pasta via app (botão Galeria)
-# Ou teste direto no backend via curl:
-curl -X POST http://192.168.15.53:5000/predict `
-  -F "image=@C:\FIAP_TRABALHOS\CARDIOIA_Fase4\test_images\04_Pneumonia_Pneumonia_Bacteriana.png"
-```
-
-| Pasta | Conteúdo |
-|---|---|
-| `test_images\` | 20 imagens sintéticas (Normal, Pneumonia, Arritmia, IAM, COVID-19 e outras) |
+Use imagens do próprio dataset em `data/processed/test/` para testar o backend.
 
 ---
 
@@ -435,16 +420,16 @@ curl -X POST http://192.168.15.53:5000/predict `
 ```
 Terminal 1                          Terminal 2
 ──────────────────────────────      ──────────────────────────────
-cd cardiaia\backend                 cd cardiaia\mobile
+cd cardioia\backend                 cd cardioia\mobile
 .\.venv\Scripts\Activate.ps1        npx expo start --clear
 python app.py                       ↓
 ↓                                   Escanear QR com Expo Go
 Servidor ativo em :5000             ↓
-                                    Selecionar imagem de test_images\
+                                    App carrega com sucesso
+                                    Selecionar imagem via galeria
                                     Tocar em "Analisar imagem →"
                                     Ver resultado na tela
 ```
-
 
 ---
 
@@ -485,34 +470,32 @@ CARDIOIA_Fase4/
 ├── docs/
 │   └── relatorio_pipeline.pdf      # Relatório técnico da Parte 1 (1–2 páginas)
 │
-├── models/
-│   └── cardioia_model.h5           # Modelo treinado (não versionado — gerar localmente)
+├── cardioia/models/
+│   └── cardioia_model.h5           # Gerado ao executar notebook no Colab (não versionado)
 │
 ├── notebooks/
-│   └── 01_preprocessamento_pipeline.ipynb
+│   ├── 01_preprocessamento_pipeline.ipynb  # Pipeline de dados (Tayná Esteves)
+│   └── 02_modelos_cnn.ipynb                # CNN do zero + VGG16 (João Vittor Fontes)
 │
 ├── outputs/
 │   ├── figures/                    # Curvas de loss e acurácia por época
 │   ├── metrics/                    # Métricas e matrizes de confusão
 │   └── samples/                    # Amostras de predições do conjunto de teste
-│
-└── scr/
-    └── preprocessing.py            # Script Python standalone do pipeline
 ```
 
 ---
 
 ## 📊 Critérios de Avaliação
 
-| Critério | Responsável | Pontos |
-|----------|-------------|:------:|
-| Pipeline de pré-processamento implementado | Tayná — Int. 1 | **3 pts** |
-| Treinamento e avaliação de CNN do zero | João — Int. 2 | **2 pts** |
-| Implementação de Transfer Learning funcional | João — Int. 2 | **2 pts** |
-| Apresentação dos resultados em protótipo | Carlos — Int. 3 | **2 pts** |
-| Documentação clara | Endrew — Int. 4 | **1 pt** |
-| Trabalho em equipe (2 a 5 integrantes) | Todos | **+1 pt** |
-| **Total possível** | | **11 pts** |
+| Critério                                     | Responsável     |   Pontos   |
+| -------------------------------------------- | --------------- | :--------: |
+| Pipeline de pré-processamento implementado   | Tayná — Int. 1  | **3 pts**  |
+| Treinamento e avaliação de CNN do zero       | João — Int. 2   | **2 pts**  |
+| Implementação de Transfer Learning funcional | João — Int. 2   | **2 pts**  |
+| Apresentação dos resultados em protótipo     | Carlos — Int. 3 | **2 pts**  |
+| Documentação clara                           | Endrew — Int. 4 |  **1 pt**  |
+| Trabalho em equipe (2 a 5 integrantes)       | Todos           | **+1 pt**  |
+| **Total possível**                           |                 | **11 pts** |
 
 ---
 
@@ -523,6 +506,7 @@ CARDIOIA_Fase4/
 O dataset **não contém informações demográficas** (idade, sexo, etnia, equipamento, origem hospitalar), o que limita análises de representatividade e impede detectar vieses populacionais.
 
 Pontos abordados no relatório técnico (`docs/relatorio_pipeline.pdf`):
+
 - Identificação de limitações e desbalanceamento do dataset
 - Discussão sobre fairness e representatividade em IA na saúde
 - Implicações éticas do uso de modelos de visão computacional em contexto clínico
@@ -542,26 +526,28 @@ Implementação completa da integração mobile com backend:
 
 ## 👥 Grupo
 
-| Integrante | RM | Função Principal |
-|------------|:---:|-----------------|
-| Tayná Esteves | RM562491 | Engenheira de Dados e Pipeline |
-| João | RM565999 | Cientista de IA e Modelos CNN |
+| Integrante     |    RM    | Função Principal                  |
+| -------------- | :------: | --------------------------------- |
+| Tayná Esteves  | RM562491 | Engenheira de Dados e Pipeline    |
+| João           | RM565999 | Cientista de IA e Modelos CNN     |
 | Carlos Eduardo | RM566487 | Desenvolvedor de Interface Mobile |
-| Endrew Alves | RM563646 | Documentador e Gestor de Entrega |
+| Endrew Alves   | RM563646 | Documentador e Gestor de Entrega  |
 
 ---
+
 ---
 
 ## 👩🏫 Professores
 
 ### Tutor(a)
+
 - <a href="https://linkedin.com/in/caique-nonato">CAIQUE NONATO DA SILVA BEZERRA</a>
 
 ### Coordenador(a)
+
 - <a href="https://www.linkedin.com/in/andregodoichiovato/">ANDRÉ GODOI CHIOVATO</a>
 
 ---
-
 
 <p align="center">
   <strong>FIAP · 3º Semestre · Inteligência Artificial · 2026</strong>

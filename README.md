@@ -218,7 +218,7 @@ model = Model(inputs=base_model.input, outputs=output)
 ## 📱 Interface Mobile
 
 **Responsável:** Carlos Eduardo — RM566487
-**Tecnologias:** React Native · Expo SDK 51 · Expo Router
+**Tecnologias:** React Native · Expo SDK 54 · Expo Router
 
 ### Telas
 
@@ -291,17 +291,18 @@ return np.expand_dims(arr, axis=0)   # shape: (1, 224, 224, 3)
 
 ### Pré-requisitos
 
-| Ferramenta | Versão mínima |
-|------------|:---:|
-| Python | 3.10+ |
-| Node.js | 18+ |
-| Expo Go (celular) | última versão |
+| Ferramenta | Versão | Observação |
+|---|:---:|---|
+| Python | 3.11 ou 3.12 | Recomendado usar `py -3.11` no Windows |
+| Node.js | 18+ | Necessário para o Expo |
+| Expo Go (celular) | SDK 54 | Versão do app no celular deve ser SDK 54 |
+| Celular e PC | — | Devem estar na **mesma rede Wi-Fi** |
 
 ---
 
 ### 1. Clone o Repositório
 
-```bash
+```powershell
 git clone https://github.com/Carlos566487/CARDIOIA_Fase4.git
 cd CARDIOIA_Fase4
 ```
@@ -310,88 +311,140 @@ cd CARDIOIA_Fase4
 
 ### 2. Backend Flask
 
-```bash
-<<<<<<< HEAD
-cd cardioia/backend
-
-# Instale as dependências
-pip install -r requirements.txt
-
-# (Opcional) Ativar o modelo real de CNN
-# 1. Coloque cardioia_model.h5 dentro de models/
-# 2. Instale o TensorFlow
-pip install tensorflow==2.16.1
-# 3. Descomente os blocos marcados em app.py
-
-# Inicie o servidor
-python app.py
-# → Servidor rodando em http://0.0.0.0:5000
-=======
+```powershell
 # 1. Entre na pasta do backend
-cd cardioia/backend
+cd cardioia\backend
 
-# 2. Criar e ativar o Ambiente Virtual (Recomendado para Python 3.11 ou 3.12)
-# No Windows (PowerShell):
+# 2. Crie e ative o ambiente virtual (Windows PowerShell)
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
-# 3. Instale as dependências básicas
+# 3. Atualize o pip e instale as dependências
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# 4. (Opcional) Ativar o modelo real de CNN
-# a) Coloque o arquivo 'cardioia_model.h5' dentro da pasta 'models/'
-# b) Instale o TensorFlow (versão específica compatível com o projeto)
-pip install tensorflow==2.16.1
-# c) Descomente os blocos marcados como "MODELO_CNN" no arquivo 'app.py'
-
-# 5. Inicie o servidor
+# 4. Inicie o servidor
 python app.py
-# → O servidor estará rodando em http://localhost:5000
->>>>>>> b2e6e34e (Repositório limpo: histórico removido para corrigir limite de tamanho)
+# → Rodando em http://0.0.0.0:5000
+# → O IP local aparece no terminal (ex: http://192.168.15.53:5000)
 ```
 
 **Testar manualmente:**
 
-```bash
-# Health check
+```powershell
+# Health check — confirma se o servidor está ativo
 curl http://localhost:5000/health
 
-# Classificar uma imagem
-curl -X POST http://localhost:5000/predict \
-  -F "image=@caminho/para/imagem.jpg"
+# Classificar uma imagem de teste
+curl -X POST http://localhost:5000/predict `
+  -F "image=@..\..\test_images\01_Normal_Pulmão_Normal.png"
+```
+
+> ℹ️ **Modo placeholder:** enquanto o arquivo `cardioia_model.h5` não estiver disponível, o backend retorna resultados simulados com `"is_placeholder": true`. O servidor permanece totalmente funcional para testes da interface.
+
+**Para ativar o modelo CNN real** (quando `cardioia_model.h5` estiver disponível):
+
+```powershell
+# a) Coloque o arquivo em: models\cardioia_model.h5
+# b) Instale o TensorFlow
+pip install tensorflow==2.16.1
+# c) Em app.py, descomente os três blocos marcados com "# MODELO_CNN"
 ```
 
 ---
 
-### 3. App Mobile (Expo)
+### 3. App Mobile (Expo Go — Android/iOS)
 
-```bash
-cd cardioia/mobile
+```powershell
+# 1. Entre na pasta do mobile
+cd cardioia\mobile
 
-# Instale as dependências
+# 2. Instale as dependências
 npm install
 
-# Configure o IP do backend
-# Edite app/config/api.js e substitua DEV_IP pelo seu IP local:
-#   macOS/Linux: ifconfig | grep "inet "
-#   Windows:     ipconfig | findstr "IPv4"
+# Se aparecer erro de peer dependency, use:
+npm install --legacy-peer-deps
+```
 
-# Inicie o app
-npx expo start
+**Configure o IP do backend** — edite `app\config\api.js`:
+
+```js
+const DEV_IP = "192.168.15.53"; // ← substitua pelo IP que apareceu no terminal do backend
+```
+
+Para descobrir seu IP local no Windows:
+
+```powershell
+ipconfig | findstr "IPv4"
+```
+
+**Inicie o app com cache limpo:**
+
+```powershell
+npx expo start --clear
 ```
 
 Escaneie o **QR code** com o app **Expo Go** instalado no celular.
 
-> ⚠️ O celular e o computador precisam estar na **mesma rede Wi-Fi**.
+> ⚠️ Celular e computador precisam estar na **mesma rede Wi-Fi**  
+> ⚠️ **Não use `localhost`** no `api.js` — o celular não consegue acessar a máquina assim  
+> ⚠️ O Expo Go instalado no celular deve ser **SDK 54** (compatível com este projeto)
 
 ---
 
-### 4. Notebook de Pré-processamento (Google Colab)
+### 4. App via Web (opcional)
 
-Acesse diretamente pelo link:
+O app também pode ser executado no navegador sem precisar do celular:
+
+```powershell
+cd cardioia\mobile
+npx expo start --web --clear
+```
+
+Abre automaticamente em `http://localhost:8081` no browser.
+
+> ⚠️ No modo web, a câmera pode não funcionar dependendo do navegador. Use a opção **Galeria** para selecionar imagens.
+
+---
+
+### 5. Imagens de Teste
+
+20 imagens sintéticas 224×224 px estão disponíveis em `test_images\` para validar o fluxo completo sem depender do dataset real:
+
+```powershell
+# Selecione qualquer imagem da pasta via app (botão Galeria)
+# Ou teste direto no backend via curl:
+curl -X POST http://192.168.15.53:5000/predict `
+  -F "image=@C:\FIAP_TRABALHOS\CARDIOIA_Fase4\test_images\04_Pneumonia_Pneumonia_Bacteriana.png"
+```
+
+| Pasta | Conteúdo |
+|---|---|
+| `test_images\` | 20 imagens sintéticas (Normal, Pneumonia, Arritmia, IAM, COVID-19 e outras) |
+
+---
+
+### 6. Notebook de Pré-processamento (Google Colab)
 
 🔗 [Abrir notebook no Colab](https://colab.research.google.com/drive/1S-5SZZlKrsEn6lZ6APxJXYsTi5yX8mSX#scrollTo=ISjNHrAtTyMY)
+
+---
+
+### Sequência recomendada para testes
+
+```
+Terminal 1                          Terminal 2
+──────────────────────────────      ──────────────────────────────
+cd cardiaia\backend                 cd cardiaia\mobile
+.\.venv\Scripts\Activate.ps1        npx expo start --clear
+python app.py                       ↓
+↓                                   Escanear QR com Expo Go
+Servidor ativo em :5000             ↓
+                                    Selecionar imagem de test_images\
+                                    Tocar em "Analisar imagem →"
+                                    Ver resultado na tela
+```
+
 
 ---
 
@@ -499,7 +552,7 @@ Implementação completa da integração mobile com backend:
 ---
 ---
 
-## 👩‍🏫 Professores
+## 👩🏫 Professores
 
 ### Tutor(a)
 - <a href="https://linkedin.com/in/caique-nonato">CAIQUE NONATO DA SILVA BEZERRA</a>

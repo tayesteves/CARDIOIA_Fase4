@@ -572,33 +572,6 @@ CARDIOIA_Fase4/
 | Documentação clara | ✅ | README, notebooks e estrutura do projeto |
 | Trabalho em equipe | ✅ | 4 integrantes |
 
----
-
-## 🚀 Ir Além
-
-### Ir Além A — Ética e Governança em IA na Saúde
-
-O projeto inclui discussão sobre limitações do dataset e cuidados éticos relacionados ao uso de IA em imagens médicas.
-
-Pontos considerados:
-
-- O dataset não possui metadados demográficos suficientes para análise profunda de fairness.
-- A ausência de informações como idade, sexo, etnia, equipamento e hospital limita a avaliação de representatividade.
-- O modelo não deve ser interpretado como ferramenta diagnóstica.
-- O uso real exigiria validação clínica, revisão médica e aprovação regulatória.
-- O sistema deve ser utilizado apenas como protótipo acadêmico.
-
-### Ir Além B — Integração com Aplicativo
-
-O projeto também apresenta integração com interface em React Native / Expo e backend Flask.
-
-Funcionalidades implementadas:
-
-- Tela inicial para seleção de imagem.
-- Upload via galeria.
-- Backend com endpoint `/predict`.
-- Retorno de classe prevista, confiança e probabilidades.
-- Tela de resultado com aviso clínico.
 
 ---
 

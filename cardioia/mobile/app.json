@@ -4,13 +4,9 @@
     "slug": "cardioia",
     "version": "1.0.0",
     "orientation": "portrait",
-<<<<<<< HEAD
     "icon": "./app/assets/icon.png",
     "userInterfaceStyle": "light",
-=======
-    "userInterfaceStyle": "light",
     "newArchEnabled": true,
->>>>>>> b2e6e34e (Repositório limpo: histórico removido para corrigir limite de tamanho)
     "splash": {
       "backgroundColor": "#0F172A"
     },
@@ -26,22 +22,12 @@
         "backgroundColor": "#0F172A"
       },
       "permissions": [
-<<<<<<< HEAD
-        "READ_EXTERNAL_STORAGE",
-        "CAMERA"
-=======
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.CAMERA"
->>>>>>> b2e6e34e (Repositório limpo: histórico removido para corrigir limite de tamanho)
       ]
     },
     "plugins": [
       "expo-router",
-<<<<<<< HEAD
-      "expo-image-picker"
-    ],
-    "scheme": "cardioia"
-=======
       [
         "expo-image-picker",
         {
@@ -54,6 +40,5 @@
     "experiments": {
       "typedRoutes": false
     }
->>>>>>> b2e6e34e (Repositório limpo: histórico removido para corrigir limite de tamanho)
   }
 }

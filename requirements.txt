@@ -1,0 +1,27 @@
+# CardioIA - Dependências Python
+# Projeto FIAP - Fase 4
+#
+# Este arquivo reúne as principais dependências Python usadas
+# no backend Flask e nos notebooks de IA.
+#
+# Para instalar:
+# pip install -r requirements.txt
+
+# Backend Flask
+flask==3.0.3
+flask-cors==4.0.1
+pillow>=10.3.0
+numpy>=1.26.0
+
+# Notebooks / Ciência de Dados / IA
+pandas>=2.2.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+scikit-learn>=1.4.0
+
+# Deep Learning
+tensorflow>=2.16.0
+keras>=3.0.0
+
+# Relatório em PDF
+reportlab>=4.0.0

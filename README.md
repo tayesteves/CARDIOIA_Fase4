@@ -1,10 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/FIAP-Inteligência%20Artificial-red?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Fase%204-Visão%20Computacional-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Python-3.10+-green?style=for-the-badge&logo=python" />
-  <img src="https://img.shields.io/badge/TensorFlow-Keras-orange?style=for-the-badge&logo=tensorflow" />
-  <img src="https://img.shields.io/badge/Flask-Backend-lightgrey?style=for-the-badge&logo=flask" />
-  <img src="https://img.shields.io/badge/React%20Native-Expo%20SDK%2051-9cf?style=for-the-badge&logo=expo" />
+  <img src="assets/logo-fiap.png" alt="Logo FIAP" width="320"/>
 </p>
 
 <h1 align="center">🫀 CardioIA — Fase 4</h1>
@@ -13,19 +8,6 @@
 
 <p align="center">
   Classificação de imagens médicas com CNN · FIAP · Inteligência Artificial · 2026
-</p>
-
-<p align="center">
-  <a href="#-sobre-o-projeto">Sobre</a> ·
-  <a href="#-objetivo">Objetivo</a> ·
-  <a href="#-dataset">Dataset</a> ·
-  <a href="#-arquitetura-da-solução">Arquitetura</a> ·
-  <a href="#-pipeline-de-pré-processamento">Pipeline</a> ·
-  <a href="#-modelos-de-ia">Modelos</a> ·
-  <a href="#-protótipo">Protótipo</a> ·
-  <a href="#-como-executar">Como executar</a> ·
-  <a href="#-estrutura-do-repositório">Estrutura</a> ·
-  <a href="#-integrantes">Integrantes</a>
 </p>
 
 ---

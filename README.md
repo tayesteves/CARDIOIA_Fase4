@@ -109,7 +109,7 @@ O dataset contém imagens de ressonância magnética cerebral organizadas em qua
 ## 🏗 Arquitetura da Solução
 
 <p align="center">
-  <img src="assets/arquitetura-solucao.png" alt="Arquitetura da Solução CardioIA" width="900"/>
+  <img src="assets/arquitetura de solucao.png" alt="Arquitetura da Solução CardioIA" width="900"/>
 </p>
 
 ---

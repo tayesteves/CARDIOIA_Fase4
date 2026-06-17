@@ -446,52 +446,59 @@ Para executar corretamente, o dataset processado precisa estar acessível no amb
 ```text
 CARDIOIA_Fase4/
 │
-├── README.md
+├── assets/
+│   ├── logo-fiap.png                    # Logo da FIAP usado no início do README
+│   └── arquitetura-solucao.png           # Imagem da arquitetura da solução
 │
 ├── cardioia/
-│   ├── README.md
+│   ├── README.md                         # Documentação específica do módulo app/backend
 │   │
 │   ├── backend/
-│   │   ├── app.py
-│   │   └── requirements.txt
+│   │   ├── app.py                        # API Flask com rotas /, /health, /classes e /predict
+│   │   └── requirements.txt              # Dependências específicas do backend Flask
 │   │
 │   └── mobile/
-│       ├── app.json
-│       ├── package.json
-│       ├── babel.config.js
-│       ├── metro.config.js
+│       ├── app.json                      # Configuração do projeto Expo
+│       ├── package.json                  # Dependências do app React Native / Expo
+│       ├── babel.config.js               # Configuração Babel
+│       ├── metro.config.js               # Configuração Metro Bundler
+│       │
 │       └── app/
-│           ├── _layout.jsx
-│           ├── index.jsx
-│           ├── result.jsx
+│           ├── _layout.jsx               # Configuração de navegação com Expo Router
+│           ├── index.jsx                 # Tela inicial para seleção/upload da imagem
+│           ├── result.jsx                # Tela de exibição do resultado da análise
+│           │
 │           └── config/
-│               └── api.js
+│               └── api.js                # Configuração da URL do backend Flask
 │
 ├── data/
-│   ├── README.md
-│   ├── metadata_dataset.csv
+│   ├── README.md                         # Documentação do dataset e do pipeline de dados
+│   ├── metadata_dataset.csv              # Metadados com caminho, classe e split das imagens
 │   ├── Figura 1 — distribuicao_dataset.png
 │   ├── Figura 2 - exemplos_classes.png
 │   ├── Figura 3 - antes_depois_preprocessamento.png
 │   ├── Figura 4 - dashboard_dataset_final.png
+│   │
 │   ├── raw/
-│   │   └── README.md
+│   │   └── README.md                     # Orientações sobre o dataset bruto
+│   │
 │   └── processed/
-│       ├── train/
-│       ├── val/
-│       └── test/
-│
-├── docs/
-│   └── relatorio_pipeline.pdf
+│       ├── train/                        # Arquivos compactados do conjunto de treino
+│       ├── val/                          # Arquivos compactados do conjunto de validação
+│       └── test/                         # Arquivos compactados do conjunto de teste
 │
 ├── notebooks/
-│   ├── 01_preprocessamento_pipeline.ipynb
-│   └── 02_modelos_cnn.ipynb
+│   ├── 01_preprocessamento_pipeline.ipynb # Notebook do pipeline de pré-processamento
+│   └── 02_modelos_cnn.ipynb               # Notebook com CNN do zero e Transfer Learning com VGG16
 │
-└── outputs/
-    ├── figures/
-    ├── metrics/
-    └── samples/
+├── outputs/
+│   ├── figures/                          # Figuras e gráficos gerados pelos notebooks
+│   ├── metrics/                          # Métricas, relatórios e matrizes de confusão
+│   └── samples/                          # Amostras de predições ou imagens usadas nos testes
+│
+├── .gitignore                            # Arquivos e pastas ignorados pelo Git
+├── README.md                             # Documentação principal do projeto
+└── requirements.txt                      # Dependências Python gerais do projeto
 ```
 
 ---

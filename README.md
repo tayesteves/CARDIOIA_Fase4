@@ -116,8 +116,6 @@ O dataset contém imagens de ressonância magnética cerebral organizadas em qua
 
 ## ⚙️ Pipeline de Pré-processamento
 
-**Responsável:** Tayná Esteves — RM562491
-
 **Notebook:** `notebooks/01_preprocessamento_pipeline.ipynb`
 
 **Colab:** [Abrir notebook de pré-processamento](https://colab.research.google.com/drive/1S-5SZZlKrsEn6lZ6APxJXYsTi5yX8mSX)
@@ -165,8 +163,6 @@ data/
 ---
 
 ## 🤖 Modelos de IA
-
-**Responsável:** João Vittor Fontes — RM565999
 
 **Notebook:** `notebooks/02_modelos_cnn.ipynb`
 
@@ -228,8 +224,6 @@ model = Model(inputs=base_model.input, outputs=output)
 ---
 
 ## 🖥 Backend Flask
-
-**Responsável técnico pela integração:** Carlos Eduardo de Souza — RM566487
 
 O backend foi desenvolvido com Flask para receber imagens via requisição HTTP, aplicar o pré-processamento necessário e retornar uma resposta JSON para a interface.
 

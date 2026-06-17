@@ -116,40 +116,9 @@ O dataset contém imagens de ressonância magnética cerebral organizadas em qua
 
 ## 🏗 Arquitetura da Solução
 
-```text
-┌──────────────────────────────┐
-│ Dataset Público de Imagens   │
-│ Brain Tumor MRI - Kaggle     │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│ Pipeline de Pré-processamento│
-│ Resize · RGB · Normalização  │
-│ Split treino/validação/teste │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│ Notebooks de IA              │
-│ CNN do zero + VGG16          │
-│ Métricas e avaliação         │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│ Backend Flask                │
-│ /health · /classes · /predict│
-│ Pré-processamento da imagem  │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│ Interface Expo / React Native│
-│ Upload de imagem médica      │
-│ Exibição do resultado        │
-└──────────────────────────────┘
-```
+<p align="center">
+  <img src="assets/arquitetura-solucao.png" alt="Arquitetura da Solução CardioIA" width="900"/>
+</p>
 
 ---
 

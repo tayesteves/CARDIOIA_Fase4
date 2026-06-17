@@ -44,14 +44,6 @@
 
 ---
 
-## ⚕️ Aviso Clínico
-
-Este projeto é um **protótipo acadêmico** desenvolvido para fins educacionais.
-
-Os resultados apresentados pelo sistema **não devem ser utilizados para diagnóstico clínico real**, triagem médica, tratamento ou tomada de decisão hospitalar. A proposta demonstra como técnicas de visão computacional podem ser aplicadas em imagens médicas, mas qualquer uso real exigiria validação clínica, revisão por especialistas, testes externos, governança de dados e aprovação regulatória.
-
----
-
 ## 🧠 Sobre o Projeto
 
 O **CardioIA** é um assistente virtual voltado à análise de imagens médicas com técnicas de **Visão Computacional** e **Redes Neurais Convolucionais (CNNs)**.

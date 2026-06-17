@@ -523,9 +523,9 @@ CARDIOIA_Fase4/
 
 | Nome | RM | Função | E-mail |
 | --- | --- | --- | --- |
-| Tayná Esteves | RM562491 | Engenharia de Dados e Pipeline | Preencher e-mail |
-| João Vittor Fontes | RM565999 | Cientista de IA e Modelos CNN | Preencher e-mail |
-| Carlos Eduardo de Souza | RM566487 | Desenvolvimento de Interface Mobile | Preencher e-mail |
+| Tayná Esteves | RM562491 | Engenharia de Dados e Pipeline | esteves.tayna96@gmail.com |
+| João Vittor Fontes | RM565999 | Cientista de IA e Modelos CNN | fontesjoaovittor@gmail.com |
+| Carlos Eduardo de Souza | RM566487 | Desenvolvimento de Interface Mobile | carlos.souza004@gmail.com |
 | Endrew Alves dos Santos | RM563646 | Documentação e Gestão da Entrega | endrewalves42@gmail.com |
 
 ---
